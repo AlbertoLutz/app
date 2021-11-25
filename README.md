@@ -1,3 +1,5 @@
+Projeto criado no treinamento React Lumis
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
