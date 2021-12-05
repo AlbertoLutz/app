@@ -1,29 +1,32 @@
-import {useEffect, useState} from 'react';
+import {ReactElement, useCallback} from 'react';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
+import {BrowserRouter} from 'react-router-dom'
+import { Header } from './components/Header';
 
-function App() {
-const [count, setCount] = useState(0)
+import GlobalStyle from './global';
+import {Routes} from './routes';
 
-useEffect(() => {
-  if(count >= 10 || count <= -10) {
-    alert(count);
-  }
-})
+import light from './global/Themes/light'
+import dark from './global/Themes/dark'
+import { usePersistedStates } from './usePersistedStates';
 
-function handleClick() {
- setCount(count + 1)
-}
+function App(): ReactElement {
 
-function handleDown() {
-  setCount(count - 1)
-}
+    const [theme, setTheme] = usePersistedStates<DefaultTheme>('theme', light)
 
-  return (
-    <div className="App">
-      <p>{count}</p>
-    <button onClick={handleClick}>Clique aqui +</button>
-    <button onClick={handleDown}>Clique aqui -</button>
-    </div>
-  );
+    const toggleTheme = useCallback(() => {
+        setTheme(theme.title === 'light' ? dark : light)
+    }, [setTheme, theme.title])
+
+    return(
+        <ThemeProvider theme={theme}>
+        <GlobalStyle />
+             <BrowserRouter>
+             <Header toggleTheme={toggleTheme} title={theme.title} primary={theme.colors.primary} secundary={theme.colors.secundary}/>
+             <Routes />
+             </BrowserRouter>
+             </ThemeProvider>
+    )
 }
 
 export default App;
