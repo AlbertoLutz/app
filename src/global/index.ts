@@ -10,8 +10,9 @@ export default createGlobalStyle`
 }
 
 body {
-    background: #f0f0f5 url(${githubBackground}) no-repeat 70% top;
+    background: #f0f0f5 url(${githubBackground}) no-repeat 50% top;
     -webkit-font-smoothing: antialiased;
+    
 }
 
 body, input, button {

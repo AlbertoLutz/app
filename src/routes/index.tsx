@@ -7,7 +7,7 @@ export function Routes(): ReactElement {
     return (
         <Switch>
             <Route path="/" exact component={Dashboard}/>
-            <Route path="*/repositories/:reposisoty+" exact component={Repository} />
+            <Route path="/repositories/:repository+" exact component={Repository} />
         </Switch>
     )
 }
