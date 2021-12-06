@@ -1,4 +1,4 @@
-# Projeto criado no treinamento React Lumis
+# Projeto criado durante o treinamento Front End React na Lumis
 
 # Getting Started with Create React App
 
